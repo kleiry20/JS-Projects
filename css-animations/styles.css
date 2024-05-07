@@ -1,0 +1,156 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(farthest-side, black 97%, transparent) top
+    left/100px 100px no-repeat;
+}
+
+/* utility classes */
+.rotate-infinite {
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+}
+
+/* ------------ transition -------- */
+button {
+  background-color: brown;
+  color: whitesmoke;
+  border: none;
+  padding: 1rem;
+  font-size: 16px;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: transform 1s ease-in;
+}
+
+button:hover {
+  background-color: whitesmoke;
+  color: brown;
+  font-size: 18px;
+  border: 1px solid brown;
+  transform: translateX(100px);
+}
+
+/* -------------- animations ------------- */
+
+/* syntax
+    .classname {
+        animation-name: slideLeft;
+        animation-duration: 0s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    } */
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(-500px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slideLeft {
+  animation: slideLeft 2s ease-in 0.3s 1;
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(500px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slideRight {
+  animation: slideRight 2s ease-in 0.3s 1;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  /* transform-origin: top left; */
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-30px);
+  }
+
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.bounce {
+  animation: bounce 1s ease-in 0s infinite;
+}
+
+@keyframes loop {
+  0% {
+  }
+  20% {
+    transform: translateX(500px);
+  }
+  40% {
+    transform: translate(500px, 500px);
+  }
+
+  80% {
+    transform: translate(-500px, 500px);
+  }
+  100% {
+    transform: translateX(-500px);
+  }
+}
+.loop {
+  animation: loop 7s ease 0s infinite;
+}
+
+@keyframes loop-down {
+  25% {
+    background-position: bottom left;
+  }
+  50% {
+    background-position: bottom right;
+  }
+  75% {
+    background-position: top right;
+  }
+}
+.loop-down {
+  animation: loop-down 4s infinite;
+}
