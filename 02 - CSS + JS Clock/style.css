@@ -1,0 +1,58 @@
+html {
+  background: url(https://images.pexels.com/photos/2114014/pexels-photo-2114014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "helvetica neue", sans-serif;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-size: 2rem;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.clock {
+  position: relative;
+  margin: auto;
+  height: 30vw;
+  width: 30vw;
+  background: url("./assets/clock.png") no-repeat;
+  background-size: 100%;
+}
+
+.hand {
+  position: absolute;
+  background: black;
+  border-radius: 10px;
+  transform-origin: bottom;
+}
+
+.hour-hand {
+  width: 1.8%;
+  height: 25%;
+  top: 25%;
+  left: 48.85%;
+  opacity: 0.8;
+}
+
+.min-hand {
+  width: 1.6%;
+  height: 31%;
+  top: 19%;
+  left: 48.9%;
+  opacity: 0.8;
+}
+
+.second-hand {
+  width: 1%;
+  height: 41%;
+  top: 9%;
+  left: 49.25%;
+  opacity: 0.8;
+}

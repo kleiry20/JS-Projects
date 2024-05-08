@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS + CSS Clock</title>
+    <link rel="icon" href="https://fav.farm/⏰" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h3>Clock</h3>
+    <p id="day-info"></p>
+
+    <div class="clock">
+      <div class="hand hour-hand"></div>
+      <div class="hand min-hand"></div>
+      <div class="hand second-hand"></div>
+    </div>
+
+    <script>
+      const secondHand = document.querySelector(".second-hand");
+      const minuteHand = document.querySelector(".min-hand");
+      const hourHand = document.querySelector(".hour-hand");
+      const dayInfo = document.getElementById("day-info");
+
+      function setDate() {
+        const now = new Date();
+        const seconds = now.getSeconds();
+        const minutes = now.getMinutes();
+        const hours = now.getHours();
+        const day_info = now.toLocaleString();
+
+        // converting the time into degrees
+        const hr_rotation = 30 * hours + minutes / 2;
+        const min_rotation = 6 * minutes;
+        const sec_rotation = 6 * seconds;
+        hourHand.style.transform = `rotate(${hr_rotation}deg)`;
+        minuteHand.style.transform = `rotate(${min_rotation}deg)`;
+        secondHand.style.transform = `rotate(${sec_rotation}deg)`;
+        dayInfo.innerHTML = day_info;
+      }
+
+      setInterval(setDate, 1000);
+    </script>
+  </body>
+</html>
