@@ -1,0 +1,113 @@
+:root {
+  --color-blue: #0075be;
+  --color-yellow: #ffcc00;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.page {
+  padding-top: 4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-image: url("https://images.pexels.com/photos/17972342/pexels-photo-17972342/free-photo-of-pokemon-theme-airplane-of-the-japanese-airline-ana.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-size: cover;
+}
+
+#pokemon-name {
+  height: 2rem;
+  width: 24rem;
+  text-align: center;
+  font-size: 16px;
+  border: 2px solid var(--color-blue);
+  border-radius: 0.2rem;
+}
+
+h1 {
+  color: var(--color-blue);
+}
+
+.search-btn {
+  background-color: var(--color-blue);
+  border: none;
+  color: var(--color-yellow);
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.result-div {
+  display: flex;
+  margin: 1rem;
+  padding: 2rem;
+  border: 1px solid;
+  width: 80%;
+}
+
+.selected-pokemon {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.row-1 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.basic-info {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+
+.card {
+  border: 1px solid;
+  border-radius: 1rem;
+  height: 6rem;
+  width: 12rem;
+  padding: 1rem;
+  text-align: center;
+  align-content: center;
+}
+.title {
+  font-weight: 600;
+}
+.title-value {
+  letter-spacing: 1px;
+}
+
+.card-content {
+  transition: transform 0.5s linear;
+}
+
+.card:hover {
+  border: 1px solid var(--color-blue);
+}
+
+.card-content:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* to get the pokemon color based on type */
+.pokemon-type[class*="water"] {
+  background: blue;
+}
+.pokemon-type[class*="grass"] {
+  background: green;
+}
+
