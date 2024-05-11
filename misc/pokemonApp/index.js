@@ -22,40 +22,42 @@
 
 // fetch with async and await
 async function fetchData() {
-  const pokemonName = document
-    .getElementById("pokemon-name")
-    .value.toLowerCase();
+  // if (pokemonName != "") {
+    const pokemonName = document
+      .getElementById("pokemon-name")
+      .value.toLowerCase();
 
-  try {
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
-    );
+    try {
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+      );
 
-    if (!response.ok) {
-      throw new Error("Could not find the pokemon. Try again!");
-    }
-    const data = await response.json();
+      if (!response.ok) {
+        throw new Error("Could not find the pokemon. Try again!");
+      }
+      const data = await response.json();
 
-    // filter the response object
-    const result = {
-      name: data.name,
-      id: data.id,
-      experience: data.base_experience,
-      moves: data.moves[0].move.name,
-      front_default: data.sprites.front_default,
-      front_shiny: data.sprites.front_shiny,
-      back_default: data.sprites.back_default,
-      back_shiny: data.sprites.back_shiny,
-      species: data.species.name,
-      type: data.types[0].type.name,
-      audio: data.cries.latest,
-    };
+      // filter the response object
+      const result = {
+        name: data.name,
+        id: data.id,
+        experience: data.base_experience,
+        moves: data.moves[0].move.name,
+        front_default: data.sprites.front_default,
+        front_shiny: data.sprites.front_shiny,
+        back_default: data.sprites.back_default,
+        back_shiny: data.sprites.back_shiny,
+        species: data.species.name,
+        type: data.types[0].type.name,
+        audio: data.cries.latest,
+      };
 
-    // call display function
-    displayPokemon(result, data);
-  } catch (error) {
-    ErrorMessage();
-    console.error(error);
+      // call display function
+      displayPokemon(result, data);
+    } catch (error) {
+      ErrorMessage();
+      console.error(error);
+    // }
   }
 }
 
