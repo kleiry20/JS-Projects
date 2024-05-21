@@ -1,0 +1,55 @@
+/* ------------------ this works */
+
+.card-wrapper {
+  display: flex;
+  border: 1px solid green;
+  padding: 50px;
+  overflow: hidden;
+}
+
+.card-scroller {
+  display: flex;
+  gap: 1rem;
+}
+
+.card {
+  height: 200px;
+  width: 200px;
+  border: 1px solid;
+  text-align: center;
+  opacity: 0;
+}
+
+.animate {
+  animation: slideIn 6s ease infinite;
+}
+
+@keyframes slideIn {
+  0%,
+  16.6% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  16.6%,
+  33.2% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50%,
+  66.6% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+  66.6%,
+  83.2% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+  83.2%,
+  100% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+}
+
+/* ---------------  */
