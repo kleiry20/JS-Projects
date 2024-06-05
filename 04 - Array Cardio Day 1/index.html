@@ -129,17 +129,14 @@
       const p = people.map((item) => {
         // const lastNames = item.split(" ");
         // return lastNames[1];
-        
       });
-      console.log(Array.from(p.sort()))
+      // console.log(Array.from(p.sort()))
 
-      function sortByLastName(a, b){
+      // function sortByLastName(a, b){
 
-      }
-
+      // }
 
       // ----
-
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
@@ -159,6 +156,30 @@
         "car",
         "truck",
       ];
+      // car = 5, truck = 3, bike = 2, walk = 2, van = 2
+      let obj = {};
+      let car = 0,
+        truck = 0,
+        bike = 0,
+        walk = 0,
+        van = 0;
+      const ans = data.reduce((acc, curVal) => {
+        if (curVal == "car") {
+          obj["car"] = car++;
+        } else if (curVal == "truck") {
+          obj["truck"] = truck++;
+        } else if (curVal == "bike") {
+          obj["bike"] = bike++;
+        } else if (curVal == "walk") {
+          obj["walk"] = walk++;
+        } else if (curVal == "van") {
+          obj["van"] = van++;
+        } else {
+          console.log("err");
+        }
+      });
+
+      // console.log(obj);
     </script>
   </body>
 </html>
