@@ -88,31 +88,33 @@
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
       const sortedInventors = inventors.sort(function (a, b) {
+        // console.log("a b: ", a, b);
         return b.year - a.year;
       });
-      //   console.table(sortedInventors);
+      // console.table("sorted by years:", sortedInventors);
 
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live all together?
+      // ---1--- initial approach
       let yearsLived = 0;
       for (let i = 0; i < inventors.length; i++) {
         yearsLived += inventors[i].passed - inventors[i].year;
       }
       //   console.log("yearslived", yearsLived);
 
+      // ---2--- another approach
       const allYears = inventors.reduce((total, inventor) => {
         return total + (inventor.passed - inventor.year);
       }, 0);
       //   console.log("allYears", allYears);
 
       // 5. Sort the inventors by years lived
-      let index = 0;
       const oldest = inventors.sort((a, b) => {
         const person1 = a.passed - a.year;
         const person2 = b.passed - b.year;
-        person1 > person2 ? -1 : 1;
-        // console.log(index++, "a", a.first, "b", b.first);
+        return person1 > person2 ? -1 : 1;
       });
+      console.log('"sort by years lived"');
       console.table(oldest);
 
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
@@ -126,17 +128,20 @@
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
+      // ---1--- initial approach
       const p = people.map((item) => {
-        // const lastNames = item.split(" ");
-        // return lastNames[1];
+        const lastNames = item.split(" ");
+        return lastNames[0];
       });
-      // console.log(Array.from(p.sort()))
+      // console.log("sorted names", p.sort());
 
-      // function sortByLastName(a, b){
-
-      // }
-
-      // ----
+      // ---2--- another approach
+      // const sortedAlpha = people.sort(function (p1, p2) {
+      //   const [aLast, aFirst] = p1.split(", ");
+      //   const [bLast, bFirst] = p2.split(", ");
+      //   return aLast > bLast ? 1 : -1;
+      // });
+      // console.log(sortedAlpha);
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
@@ -157,28 +162,30 @@
         "truck",
       ];
       // car = 5, truck = 3, bike = 2, walk = 2, van = 2
-      let obj = {};
-      let car = 0,
-        truck = 0,
-        bike = 0,
-        walk = 0,
-        van = 0;
-      const ans = data.reduce((acc, curVal) => {
-        if (curVal == "car") {
-          obj["car"] = car++;
-        } else if (curVal == "truck") {
-          obj["truck"] = truck++;
-        } else if (curVal == "bike") {
-          obj["bike"] = bike++;
-        } else if (curVal == "walk") {
-          obj["walk"] = walk++;
-        } else if (curVal == "van") {
-          obj["van"] = van++;
-        } else {
-          console.log("err");
-        }
-      });
 
+      data.reduce((acc, curVal) => {});
+
+      // let obj = {};
+      // let car = 0,
+      //   truck = 0,
+      //   bike = 0,
+      //   walk = 0,
+      //   van = 0;
+      // const ans = data.reduce((acc, curVal) => {
+      //   if (curVal == "car") {
+      //     obj["car"] = car++;
+      //   } else if (curVal == "truck") {
+      //     obj["truck"] = truck++;
+      //   } else if (curVal == "bike") {
+      //     obj["bike"] = bike++;
+      //   } else if (curVal == "walk") {
+      //     obj["walk"] = walk++;
+      //   } else if (curVal == "van") {
+      //     obj["van"] = van++;
+      //   } else {
+      //     console.log("err");
+      //   }
+      // });
       // console.log(obj);
     </script>
   </body>
