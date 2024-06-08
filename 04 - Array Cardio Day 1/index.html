@@ -166,28 +166,29 @@
       data.reduce((acc, curVal) => {});
 
       // emergency situation, will continue
-      // let obj = {};
-      // let car = 0,
-      //   truck = 0,
-      //   bike = 0,
-      //   walk = 0,
-      //   van = 0;
-      // const ans = data.reduce((acc, curVal) => {
-      //   if (curVal == "car") {
-      //     obj["car"] = car++;
-      //   } else if (curVal == "truck") {
-      //     obj["truck"] = truck++;
-      //   } else if (curVal == "bike") {
-      //     obj["bike"] = bike++;
-      //   } else if (curVal == "walk") {
-      //     obj["walk"] = walk++;
-      //   } else if (curVal == "van") {
-      //     obj["van"] = van++;
-      //   } else {
-      //     console.log("err");
-      //   }
-      // });
-      // console.log(obj);
+
+      let obj = {};
+      let car = 0,
+        truck = 0,
+        bike = 0,
+        walk = 0,
+        van = 0;
+      const ans = data.reduce((acc, curVal) => {
+        if (curVal == "car") {
+          obj["car"] = car++;
+        } else if (curVal == "truck") {
+          obj["truck"] = truck++;
+        } else if (curVal == "bike") {
+          obj["bike"] = bike++;
+        } else if (curVal == "walk") {
+          obj["walk"] = walk++;
+        } else if (curVal == "van") {
+          obj["van"] = van++;
+        } else {
+          console.log("err");
+        }
+      });
+      console.log(obj);
     </script>
   </body>
 </html>
