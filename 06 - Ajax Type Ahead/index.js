@@ -42,7 +42,7 @@ searchInput.addEventListener("keyup", displayMatches);
 
 function displayMatches() {
   const filteredCities = findMatches(searchInput.value, cities);
-  console.log("res", filteredCities);
+//   console.log("res", filteredCities);
 //   const html = filteredCities.map((place) => {
 //     return `
 //     <li>
