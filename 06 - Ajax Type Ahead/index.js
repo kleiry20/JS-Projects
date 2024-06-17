@@ -2,26 +2,13 @@ const endpoint =
   "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
 
 const cities = [];
-// const filteredCities = [];
 fetchData();
-// fetch(endpoint)
-//   .then((res) => res.json())
-//   .then((data) => {
-//     cities.push(...data);
-//   });
 
 async function fetchData() {
   const res = await fetch(endpoint);
   const result = await res.json();
   cities.push(...result);
 }
-
-// function handleChange() {
-//   if (cities != undefined) {
-//     const searchParam = document.getElementById("searchInput");
-//     searchParam.addEventListener("change", findMatches(cities));
-//   }
-// }
 
 function findMatches(searchVal, cities) {
   const filterRes = cities.filter((city) => {
@@ -42,13 +29,31 @@ searchInput.addEventListener("keyup", displayMatches);
 
 function displayMatches() {
   const filteredCities = findMatches(searchInput.value, cities);
-//   console.log("res", filteredCities);
-//   const html = filteredCities.map((place) => {
-//     return `
-//     <li>
-//         <span class='name'>${place.city}, ${place.state}</span>
-//         <span class='population'>${place.city}, ${place.state}</span>
-//     </li>
-//     `;
-//   });
+
+  const html = filteredCities
+    .map((place) => {
+      //   to highlight the search text in the results with yellow bg, use regex
+      //   gi =  global insensitive(uppercase or lowercase)
+      const regex = new RegExp(searchInput.value, "gi");
+      const cityName = place.city.replace(
+        regex,
+        `<span class="hl">${searchInput.value}</span>`
+      );
+      const stateName = place.state.replace(
+        regex,
+        `<span class="hl">${searchInput.value}</span>`
+      );
+
+      return `
+    <li>
+        <span class='name'>${cityName}, ${stateName}</span>
+        <span class='population'>${parseInt(
+          place.population
+        ).toLocaleString()}</span>
+    </li>
+    `;
+    })
+    .join("");
+
+  suggestions.innerHTML = html;
 }
