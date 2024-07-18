@@ -45,7 +45,7 @@ function handleFullScreen(e) {
 //   console.log(e);
   //   e.view.innerWidth = 400;
   //   e.view.innerHeight = 400;
-//   console.log(video);
+  console.log(video);
   video.videoWidth = 100;
   video.videoHeight = 100;
 }
