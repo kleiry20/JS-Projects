@@ -240,6 +240,16 @@
       }
 
       const sliderImages = document.querySelectorAll(".slide-in");
+
+      function checkSlide(e) {
+        sliderImages.forEach((slideImage) => {
+          // half way through the image
+          const slideInAt =
+            window.scrollY + window.innerHeight - slideImage.height / 2;
+        });
+      }
+
+      window.addEventListener("scroll", debounce(checkSlide, 100));
     </script>
 
     <style>
