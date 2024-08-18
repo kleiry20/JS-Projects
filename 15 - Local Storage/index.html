@@ -49,7 +49,13 @@
         <li>Loading Tapas...</li>
       </ul>
       <form class="add-items">
-        <input type="text" name="item" placeholder="Item Name" required />
+        <input
+          type="text"
+          class="item"
+          name="item"
+          placeholder="Item Name"
+          required
+        />
         <input type="submit" value="+ Add Item" />
       </form>
     </div>
@@ -57,7 +63,21 @@
     <script>
       const addItems = document.querySelector(".add-items");
       const itemsList = document.querySelector(".plates");
-    //   const items = [];
+      const items = [];
+
+      function addItem(e) {
+        e.preventDefault();
+        const text = document.querySelector("[name=item]").value;
+        const item = {
+          text: text,
+          done: false,
+        };
+
+        items.push(item);
+        this.reset();
+      }
+
+      addItems.addEventListener("submit", addItem);
     </script>
   </body>
 </html>
