@@ -65,17 +65,17 @@
       const itemsList = document.querySelector(".plates");
       const items = [];
 
-      function addItem(e) {
-        e.preventDefault();
-        const text = document.querySelector("[name=item]").value;
-        const item = {
-          text: text,
-          done: false,
-        };
+    //   function addItem(e) {
+    //     e.preventDefault();
+    //     const text = document.querySelector("[name=item]").value;
+    //     const item = {
+    //       text: text,
+    //       done: false,
+    //     };
 
-        items.push(item);
-        this.reset();
-      }
+    //     items.push(item);
+    //     this.reset();
+    //   }
 
       addItems.addEventListener("submit", addItem);
     </script>
