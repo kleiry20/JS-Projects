@@ -65,17 +65,33 @@
       const itemsList = document.querySelector(".plates");
       const items = [];
 
-    //   function addItem(e) {
-    //     e.preventDefault();
-    //     const text = document.querySelector("[name=item]").value;
-    //     const item = {
-    //       text: text,
-    //       done: false,
-    //     };
+      function addItem(e) {
+        e.preventDefault();
+        const text = document.querySelector("[name=item]").value;
+        const item = {
+          text: text,
+          done: false,
+        };
 
-    //     items.push(item);
-    //     this.reset();
-    //   }
+        items.push(item);
+        populateList(items, itemsList);
+        this.reset();
+      }
+
+      //  find out the optimum/react way to update only one li item as and when they are appended
+      // to increase performance (refer at 11:00)
+      function populateList(plates = [], platesList) {
+        platesList.innerHTML = plates
+          .map((plate, i) => {
+            return `
+            <li>
+                <input type='checkbox' data-index=${i} id="item${i}" checked/>
+                <label for="item${i}">${plate.text}</label>
+            </li>
+            `;
+          })
+          .join("");
+      }
 
       addItems.addEventListener("submit", addItem);
     </script>
