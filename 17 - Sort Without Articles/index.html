@@ -26,6 +26,26 @@
         "Anywhere But Here",
         "An Old Dog",
       ];
+
+      const bandsList = document.getElementById("bands");
+
+      function displayBands() {
+        for (let i = 0; i < bands.length; i++) {
+          var li = document.createElement("li");
+          li.innerHTML = bands[i];
+          bandsList.append(li);
+        }
+        // bandsList.sort();
+        console.log("bandlist", bandsList);
+      }
+
+      function sortNames() {
+        const articles = ["A", "An", "The"];
+        
+      }
+
+      displayBands();
+      // sortNames();
     </script>
   </body>
 </html>
