@@ -29,23 +29,17 @@
 
       const bandsList = document.getElementById("bands");
 
-      function displayBands() {
-        for (let i = 0; i < bands.length; i++) {
-          var li = document.createElement("li");
-          li.innerHTML = bands[i];
-          bandsList.append(li);
-        }
-        // bandsList.sort();
-        console.log("bandlist", bandsList);
+      function strip(bandName) {
+        return bandName.replace(/^(a |the |an )/i, "").trim();
       }
 
-      function sortNames() {
-        const articles = ["A", "An", "The"];
-        
-      }
+      const sortedBands = bands.sort((a, b) => {
+        return strip(a) > strip(b) ? 1 : -1;
+      });
 
-      displayBands();
-      // sortNames();
+      document.querySelector("#bands").innerHTML = sortedBands
+        .map((band) => `<li>${band}</li>`)
+        .join("");
     </script>
   </body>
 </html>
