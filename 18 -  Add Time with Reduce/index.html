@@ -67,9 +67,26 @@
       <li data-time="4:04">Video 58</li>
     </ul>
     <script>
-      // calculate the seconds
+      // timeNodes is a NodeList, and we need an array to work with map function
+      // 2 ways to convert NodeList into an Array -> use [...] or Array.from
       const timeNodes = Array.from(document.querySelectorAll("[data-time]"));
-      const seconds = timeNodes.map((node) => node.dataset.time);
+
+      const seconds = timeNodes
+        .map((node) => node.dataset.time)
+        .map((timeValue) => {
+          const [mins, secs] = timeValue.split(":").map(parseFloat);
+          return mins * 60 + secs;
+        })
+        .reduce((total, vidSeconds) => total + vidSeconds);
+
+      let secondsLeft = seconds;
+      const hours = Math.floor(secondsLeft / 3600);
+      secondsLeft = secondsLeft % 3600;
+
+      const mins = Math.floor(secondsLeft / 60);
+      secondsLeft = secondsLeft % 60;
+
+      console.log(hours, mins, secondsLeft);
     </script>
   </body>
 </html>
