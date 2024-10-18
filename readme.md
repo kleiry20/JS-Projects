@@ -1,1 +1,3 @@
-this has a readme. new readme
+JS Projects
+
+A collection of small projects to practice frontend skills.
